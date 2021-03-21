@@ -1,4 +1,13 @@
-# ProApps
+# ProApps - (FrontEnd -Admin) apps using firebase database/Shopping site Angular
+This project having 2 nested Angular projects(Admin/Frontend) which are connected with firebase and maintaing data 
+
+
+
+
+
+
+![image](https://user-images.githubusercontent.com/80127823/111907463-55b56c00-8a4d-11eb-9bf0-419778fa5eea.png)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.
 
