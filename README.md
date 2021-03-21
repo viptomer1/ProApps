@@ -2,6 +2,9 @@
 This project having 2 nested Angular projects(Admin/Frontend) which are connected with firebase and maintaing data 
 - maintain data for cart for frontend user and admin can access that data
 
+Admin app - https://testfrb-f3711.web.app/login
+
+FrontEnd app -
 
 
 
