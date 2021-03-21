@@ -3,7 +3,7 @@ import { Component ,OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Subscription } from 'rxjs';
 import { DocumentSnapshot } from '@firebase/firestore-types';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'cart',
@@ -19,20 +19,19 @@ export class CartComponent implements OnInit {
 
   constructor(//private oktaAuth: OktaAuthService,
     private db: AngularFirestore,
-    private route: ActivatedRoute) {
+    private route: Router) {
   }
 
    ngOnInit() {
-    const doc = this.db.collection('carts').doc('cartItems').get(); // console.log('>>>>>>>>>>>>> ', doc);
-    //this.subs = 
+    const doc = this.db.collection('carts').doc('cartItems').get(); 
     doc.subscribe((snapshot) => { //console.log('>>>>>>>>snapshot>>>>> ', snapshot);
       const page = snapshot.data();   console.log('>>>>>>>>page>>>>> ', page);
       if (!page) {
         this.content = '### No product found';
-        this.slug = 'slug not found';
+        this.doCartContent = '';
       } else {
           this.items.push(page);
-          this.content = ' => add product from list ';
+          this.content = ' => Check out cart after checking items ';
       }   
     });
 
@@ -57,11 +56,18 @@ export class CartComponent implements OnInit {
         } else this.isLoggedIn = false;
       }
   }
-
+  //remoivng cart items
   addToCart(){
-    console.log('>>>>>>>>adding cart>>>>> ', this);
+    console.log('>>>>>>>remove item from cart>>>>> ', this);
+  }
+  //method for checkout cart
+  doCart(){
+    console.log('>>>>>>> Check out cart adding item to table>>>>> ', this);
+    this.doCartContent = '*** Cart successfully checkedout ****';
+    this.route.navigate(['/home']);
   }
   content = 'Content';
+  doCartContent = '';
   title = 'frontend';
   // users: { name: string, title: string }[] = [
   //   { name: 'Carla Espinosa', title: 'Nurse' },

@@ -7,7 +7,11 @@
   <nb-list>
     <nb-list-item *ngFor="let user of items">
       <nb-user class="placeRight" [name]="user.name" [title]="user.desc"> 
-      </nb-user><div class="placeRight" style="margin-left: 40px;" >£{{user.price}}</div><button *ngIf="isLoggedIn" class="placeRight" style="margin-left: 60%; background-color:green" status="primary" (click)="addToCart()">Add to cart</button>
+      </nb-user><div class="placeRight" style="margin-left: 40px;" >£{{user.price}}</div><button *ngIf="isLoggedIn" class="placeRight" style="margin-left: 60%; background-color:red" status="primary" (click)="addToCart()">Remove</button>
     </nb-list-item>
   </nb-list>
 </nb-card>
+
+<br><br>
+<button *ngIf="isLoggedIn" class="placeRight" style=" padding:10px;margin-left: 80%; background-color:lightgreen" status="primary" (click)="doCart()">Check out cart!</button>
+<br><p class="sub-title"style=" padding:10px;margin-left: 80%;">{{doCartContent}}</p>

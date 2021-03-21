@@ -2,9 +2,9 @@
 
   <nb-layout-header fixed class="header"><div style="margin-left: 40px;font-weight: bold;">SHOP BRAND</div> 
   <!-- Insert header here -->
-    <button nbButton status="primary" style="margin-left: 60%;padding: 10px;" *ngIf="!isLoggedIn" (click)="loginHome()">Login</button>
-    <button nbButton status="primary" style="margin-left: 60%;padding: 10px;" *ngIf="isLoggedIn"  (click)="logoutHome()">Log out</button>
-    <button nbButton status="primary" style="margin-left: 10%;padding: 10px;" *ngIf="isLoggedIn"  (click)="cart()">Cart[]</button>
+    <button nbButton status="primary" style="margin-left: 60%;padding: 6px;" *ngIf="!isLoggedIn" (click)="loginHome()">Login</button>
+    <button nbButton status="primary" style="margin-left: 60%;padding: 6px;" *ngIf="isLoggedIn"  (click)="logoutHome()">Log out</button>
+    <button nbButton status="primary" style="margin-left: 5%;padding: 6px;background-color:blue" *ngIf="isLoggedIn"  (click)="cart()">Cart[]</button>
   </nb-layout-header>
 
   <nb-layout-column>
