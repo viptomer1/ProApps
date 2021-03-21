@@ -62,46 +62,44 @@ export class CartComponent implements OnInit {
   }
   //method for checkout cart
   doCart(){
-    console.log('>>>>>>> Check out cart adding item to table>>>>> ', this);
-    let itemToAdd = {
-      'ID': '110001', 'name':'Product1', 'price': '20', 'desc':'product1 net plain', 'SKU':'sku001'
-    };
+    console.log('>>>>>>> Check out cart adding item to table>>>>> ', this);     
+        //   0: {"ID": "10001"+now, "name":"Product1", "price": "10", "desc":"product1 net plain", "SKU":"sku001"+now},
+        //   1: {"ID": "10002"+now, "name":"Product2", "price": "20", "desc":"product2 net sil", "SKU":"sku002"+now},
+        //   2: {"ID": "10003"+now, "name":"Product3", "price": "25", "desc":"product3 net ", "SKU":"sku003"+now},
+        //   3: {"ID": "10004"+now, "name":"Product4", "price": "15", "desc":"product4 net gold", "SKU":"sku004"+now},
+        //   4: {"ID": "10005"+now, "name":"Product5", "price": "40", "desc":"product5 net beans", "SKU":"sku005"+now}
+        // }
+       
+        // //adding cart in cart of db
+        // this.db.collection('carts').doc('cartItems').set(document2, {merge: true}).then(() => {
+        //   this.doCartContent = '*** Cart successfully checkedout ****';
+        //   console.log('>>>>>>** Cart successfully checkedout > ');
+        //   this.route.navigate(['/home']);
+        // });
 
-    const doc = this.db.collection('carts').doc('cartItems').get(); 
-    doc.subscribe((snapshot) => { console.log('>>>>>>>>snapshot Cart111>>>>> ', snapshot);
-      const page = snapshot.data();   console.log('>>>>>>>>page111>>>>> ', page);
-      if (page) {
-        //this.content = '### No product found';
-        const now = Date.now();
-        let document = {
-          content: itemToAdd,
-          modified: now,
-          created: now
-        }
-        let document1 = {
-          
-            'ID': '10001'+now, 'name':'Product1', 'price': '10', 'desc':'product1 net plain', 'SKU':'sku001'+now
-          
-        }
-        this.db.collection('carts').doc('cartItems').set(document1, {merge: true}).then(() => {
+        
+        //adding cart in cart of db
+        this.db.collection('carts').doc('cart').set(this.itemToAdd, {merge: true}).then(() => {
           this.doCartContent = '*** Cart successfully checkedout ****';
+
+          const doc = this.db.collection('carts').doc('cart').get(); 
+        doc.subscribe((snapshot) => { //console.log('>>>>>>>>snapshot cart adming>>>> ', snapshot);
+        const page = snapshot.data();   console.log('>>>>>>>>page admin cart>>>> ', page);
+
+
           console.log('>>>>>>** Cart successfully checkedout > ');
           this.route.navigate(['/home']);
         });
-      }  
     });
 
 
     
   }
   content = 'Content';
+  now = Date.now();
+  itemToAdd = {
+    'ID': '110001'+this.now, 'items':'1', 'total': '10',  'userID':''+localStorage.getItem('logUser')
+  };
   doCartContent = '';
   title = 'frontend';
-  // users: { name: string, title: string }[] = [
-  //   { name: 'Carla Espinosa', title: 'Nurse' },
-  //   { name: 'Bob Kelso', title: 'Doctor of Medicine' },
-  //   { name: 'Janitor', title: 'Janitor' },
-  //   { name: 'Perry Cox', title: 'Doctor of Medicine' },
-  //   { name: 'Ben Sullivan', title: 'Carpenter and photographer' },
-  // ];
 }

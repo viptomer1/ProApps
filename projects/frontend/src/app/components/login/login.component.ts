@@ -28,6 +28,7 @@ export class NgxLoginComponent{
       this.submitted= true;
       //if success--
       localStorage.setItem('isLoggedIn', 'y');
+      localStorage.setItem('logUser', email);
       this.router.navigate([ '/home' ], { queryParams: { log: 'keyN' } });
       //this.router.navigate(['/home', this.isLoggedIn]);
     }else{
