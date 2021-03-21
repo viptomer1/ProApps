@@ -5,19 +5,22 @@ This project having 2 nested Angular projects(Admin/Frontend) which are connecte
 Admin app - https://testfrb-f3711.web.app/login
 
 FrontEnd app - https://shop-frontapp.web.app/home
-
+<br><hr>
 # firebase shoping item structure
 Collection (carts) ==> 2 tables (cart & cartItems) 
 - Create a cart model, each cart can have ID, userID, items, total
 - An item should have ID, SKU, name, description, prices
 ![image](https://user-images.githubusercontent.com/80127823/111908431-302a6180-8a51-11eb-8dbe-0a4eb63ddfee.png)
 
+# Front end app
+![image](https://user-images.githubusercontent.com/80127823/111907463-55b56c00-8a4d-11eb-9bf0-419778fa5eea.png)
+
+<br>
 
 #  admin app
 ![image](https://user-images.githubusercontent.com/80127823/111908223-569bcd00-8a50-11eb-988e-44efc1933e9b.png)
-
-# Front end app
-![image](https://user-images.githubusercontent.com/80127823/111907463-55b56c00-8a4d-11eb-9bf0-419778fa5eea.png)
+<br>
+<hr>
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.
