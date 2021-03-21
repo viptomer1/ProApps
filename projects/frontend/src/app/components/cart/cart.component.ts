@@ -15,7 +15,7 @@ export class CartComponent implements OnInit {
   slug: string = 'cart';
   items: any=[];
   //items1: any=[];
-  isLoggedIn =false;
+  isItemAdded =false;
 
   constructor(//private oktaAuth: OktaAuthService,
     private db: AngularFirestore,
@@ -23,17 +23,25 @@ export class CartComponent implements OnInit {
   }
 
    ngOnInit() {
-    const doc = this.db.collection('carts').doc('cartItems').get(); 
-    doc.subscribe((snapshot) => { //console.log('>>>>>>>>snapshot>>>>> ', snapshot);
-      const page = snapshot.data();   console.log('>>>>>>>>page>>>>> ', page);
-      if (!page) {
-        this.content = '### No product found';
-        this.doCartContent = '';
-      } else {
-          this.items.push(page);
-          this.content = ' => Check out cart after checking items ';
-      }   
-    });
+      if(localStorage.getItem('itemAdded')){
+        localStorage.removeItem('itemAdded')
+        const doc = this.db.collection('carts').doc('cartItems').get(); 
+        doc.subscribe((snapshot) => { //console.log('>>>>>>>>snapshot>>>>> ', snapshot);
+            const page = snapshot.data();   console.log('>>>>>>>>page>>>>> ', page);
+            if (!page) {
+              this.content = '### No product found';
+              this.doCartContent = '';
+            } else {
+                this.items.push(page);
+                this.content = ' => Check out cart after checking items ';
+            }   
+        });
+        this.isItemAdded = true;
+      }else {
+        this.content = '### No product added into card, please add a product first for checkout from shopping list';
+        this.isItemAdded = false;
+      }
+      
 
 
     // //Getting cart details
@@ -49,13 +57,13 @@ export class CartComponent implements OnInit {
     // });
 
   }
-  ngAfterViewChecked() { 
-      if(localStorage.getItem('isLoggedIn')){
-        if(localStorage.getItem('isLoggedIn')=== 'y'){
-          this.isLoggedIn = true;
-        } else this.isLoggedIn = false;
-      }
-  }
+  // ngAfterViewChecked() { 
+  //     if(localStorage.getItem('isLoggedIn')){
+  //       if(localStorage.getItem('isLoggedIn')=== 'y'){
+  //         this.isLoggedIn = true;
+  //       } else this.isLoggedIn = false;
+  //     }
+  // }
   //remoivng cart items
   addToCart(){
     console.log('>>>>>>>remove item from cart>>>>> ', this);

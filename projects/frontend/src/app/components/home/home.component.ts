@@ -60,6 +60,7 @@ export class HomeComponent implements OnInit {
 
   addToCart(){
     console.log('>>>>>>>>adding cart>>>>> ', this);
+    localStorage.setItem('itemAdded','y');
   }
   content = 'Content';
   title = 'frontend';
