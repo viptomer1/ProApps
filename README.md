@@ -1,5 +1,6 @@
 # ProApps - (FrontEnd -Admin) apps using firebase database/Shopping site Angular
 This project having 2 nested Angular projects(Admin/Frontend) which are connected with firebase and maintaing data 
+- maintain data for cart for frontend user and admin can access that data
 
 
 
