@@ -1,0 +1,31 @@
+<nb-layout>
+
+  <nb-layout-header fixed class="header"><div style="margin-left: 40px;font-weight: bold;">SHOP BRAND</div> 
+  <!-- Insert header here -->
+    <button nbButton status="primary" style="margin-left: 60%;padding: 10px;" *ngIf="!isLoggedIn" (click)="loginHome()">Login</button>
+    <button nbButton status="primary" style="margin-left: 60%;padding: 10px;" *ngIf="isLoggedIn"  (click)="logoutHome()">Log out</button>
+    <button nbButton status="primary" style="margin-left: 10%;padding: 10px;" *ngIf="isLoggedIn"  (click)="cart()">Cart[]</button>
+  </nb-layout-header>
+
+  <nb-layout-column>
+  
+    <div class="content" role="main">
+
+      <!-- Resources -->
+      <h2>SHOP FASHION OFFERS</h2>
+      
+    
+    
+    </div>
+    
+   
+    
+    <router-outlet></router-outlet>
+    
+  </nb-layout-column>
+
+  <nb-layout-footer fixed class="header">
+  <!-- Insert footer here --><div>Busy bee </div>
+  </nb-layout-footer>
+
+</nb-layout>

@@ -1,0 +1,12 @@
+.header {
+    background-color: rgb(91, 130, 238) !important;
+}
+
+.placeRight{
+    margin-left: 50px !important;
+}
+
+.btnColor {
+    background-color: midnightblue;
+    color: white;
+}
