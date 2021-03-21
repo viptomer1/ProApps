@@ -4,6 +4,7 @@
   },
   "hosting": {
     "public": "dist",
+    "site":"shop-frontapp",
     "ignore": [
       "firebase.json",
       "**/.*",
