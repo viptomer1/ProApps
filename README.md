@@ -4,12 +4,14 @@ This project having 2 nested Angular projects(Admin/Frontend) which are connecte
 
 Admin app - https://testfrb-f3711.web.app/login
 
-FrontEnd app -
+FrontEnd app - https://shop-frontapp.web.app/home
 
 
 
+#  admin app
+![image](https://user-images.githubusercontent.com/80127823/111908223-569bcd00-8a50-11eb-988e-44efc1933e9b.png)
 
-
+# Front end app
 ![image](https://user-images.githubusercontent.com/80127823/111907463-55b56c00-8a4d-11eb-9bf0-419778fa5eea.png)
 
 
