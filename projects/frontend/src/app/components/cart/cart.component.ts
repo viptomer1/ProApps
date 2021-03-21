@@ -63,8 +63,36 @@ export class CartComponent implements OnInit {
   //method for checkout cart
   doCart(){
     console.log('>>>>>>> Check out cart adding item to table>>>>> ', this);
-    this.doCartContent = '*** Cart successfully checkedout ****';
-    this.route.navigate(['/home']);
+    let itemToAdd = {
+      'ID': '110001', 'name':'Product1', 'price': '20', 'desc':'product1 net plain', 'SKU':'sku001'
+    };
+
+    const doc = this.db.collection('carts').doc('cartItems').get(); 
+    doc.subscribe((snapshot) => { console.log('>>>>>>>>snapshot Cart111>>>>> ', snapshot);
+      const page = snapshot.data();   console.log('>>>>>>>>page111>>>>> ', page);
+      if (page) {
+        //this.content = '### No product found';
+        const now = Date.now();
+        let document = {
+          content: itemToAdd,
+          modified: now,
+          created: now
+        }
+        let document1 = {
+          
+            'ID': '10001'+now, 'name':'Product1', 'price': '10', 'desc':'product1 net plain', 'SKU':'sku001'+now
+          
+        }
+        this.db.collection('carts').doc('cartItems').set(document1, {merge: true}).then(() => {
+          this.doCartContent = '*** Cart successfully checkedout ****';
+          console.log('>>>>>>** Cart successfully checkedout > ');
+          this.route.navigate(['/home']);
+        });
+      }  
+    });
+
+
+    
   }
   content = 'Content';
   doCartContent = '';

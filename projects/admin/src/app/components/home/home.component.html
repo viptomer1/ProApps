@@ -1,18 +1,7 @@
 
-<p>Here are some items you can get started to shop:</p>
-    
-<p class="sub-title">Hello! shopper.{{content}}</p>
-<hr>
-<nb-card size="small">
-  <nb-list>
-    <nb-list-item *ngFor="let user of items">
-      <nb-user class="placeRight" [name]="user.name" [title]="user.desc"> 
-      </nb-user><div class="placeRight" style="margin-left: 40px;" >£{{user.price}}</div><button *ngIf="isLoggedIn" class="placeRight" style="margin-left: 60%; background-color:green" status="primary" (click)="addToCart()">Add to cart</button>
-    </nb-list-item>
-  </nb-list>
-</nb-card>
 
-<!-- <br><br>
+
+<br><br>
 <p class="sub-title">Hello! Admin.{{content}}</p>
 <hr>
 <nb-card size="small">
@@ -22,4 +11,4 @@
       </nb-user><div class="placeRight" style="margin-left: 40px;" >£{{user.total}}</div><div class="placeRight" style="margin-left: 30%; background-color:lightgray" status="primary">Items: {{user.items}}</div>
     </nb-list-item>
   </nb-list>
-</nb-card> -->
+</nb-card>
