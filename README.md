@@ -6,6 +6,11 @@ Admin app - https://testfrb-f3711.web.app/login
 
 FrontEnd app - https://shop-frontapp.web.app/home
 
+# firebase shoping item structure
+Collection (carts) ==> 2 tables (cart & cartItems) 
+- Create a cart model, each cart can have ID, userID, items, total
+- An item should have ID, SKU, name, description, prices
+![image](https://user-images.githubusercontent.com/80127823/111908431-302a6180-8a51-11eb-8dbe-0a4eb63ddfee.png)
 
 
 #  admin app
